@@ -586,3 +586,119 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/************************************************************************************************************************/
+
+
+
+/* ===== ABOUT SECTION ===== */
+.about {
+    padding: 80px 5%;
+    background: var(--cream-bg);
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background: #000; /* fallback background */
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Shows full video without cropping */
+    object-position: center bottom; 
+    transform: translate(-50%, -50%);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .about-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  
+  
+  .about-hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .about-content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--black);
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--black);
+  }
+  
+  .about-content a {
+    color: var(--gold);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  
+  .about-content a:hover {
+    color: var(--red);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 250px;
+    }
+  
+    .about-hero-content h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
