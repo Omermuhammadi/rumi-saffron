@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUMI SAFFRON | Luxury Organic Honey & Saffron</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <!-- Font Awesome (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -15,7 +13,7 @@
     <nav class="navbar">
         <div class="logo">RUMI SAFFRON</div>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -27,34 +25,45 @@
     </nav>
 
     <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <!-- Video Background (Autoplay, Muted, Loop) -->
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="asssets\6421252-uhd_4096_2160_30fps.mp4" type="video/mp4">
-        <!-- Fallback Image (Compressed) -->
-        <img src="assets/images/hero-fallback.jpg" alt="Luxury Saffron & Honey">
-    </video>
-    <div class="hero-content">
-        <h1>LUXURY IN EVERY STRAND</h1>
-        <p>Handpicked Iranian Saffron & Himalayan Wildflower Honey</p>
-        <a href="shop.html" class="cta-button">SHOP NOW</a>
-    </div>
-</section>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="asssets/videos/hero.mp4" type="video/mp4">
+            <img src="asssets/images/hero-fallback.jpg" alt="Luxury Saffron & Honey">
+        </video>
+        <div class="hero-content">
+            <h1>LUXURY IN EVERY STRAND</h1>
+            <p>Handpicked Iranian Saffron & Himalayan Wildflower Honey</p>
+            <a href="shop.html" class="cta-button">SHOP NOW</a>
+        </div>
+    </section>
 
     <!-- Product Teasers -->
     <section class="products">
-        <div class="product-card">
-            <img src="asssets\saimages.jpg" alt="Saffron (1 Gram)">
-            <h3>PERSIAN SAFFRON</h3>
-            <p>From 1200/ gram</p>
-            <a href="shop.html#saffron" class="shop-button">VIEW OPTIONS</a>
-        </div>
-        <div class="product-card">
-            <img src="asssets\art-rachen-Asj5DFw8UAw-unsplash.jpg" alt="Organic Honey">
-            <h3>WILDFLOWER HONEY</h3>
-            <p>From 1500 / 250g</p>
-            <a href="shop.html#honey" class="shop-button">VIEW OPTIONS</a>
+        <div class="product-grid">
+            <!-- Saffron -->
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="asssets/images/saffron-1g.jpg" alt="Premium Saffron (1 Gram)">
+                </div>
+                <div class="product-content">
+                    <h3>1 Gram Saffron</h3>
+                    <p class="price">Rs 1300</p>
+                    <button class="add-to-cart" data-product="Saffron (1g)" data-price="1300" data-image="saffron-1g.jpg">ADD TO CART</button>
+                </div>
+            </div>
+            
+            <!-- Honey -->
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="asssets\images\honey-250g.jpg" alt="Wildflower Honey (250g)">
+                </div>
+                <div class="product-content">
+                    <h3>250g Honey</h3>
+                    <p class="price">Rs 800</p>
+                    <button class="add-to-cart" data-product="Honey (250g)" data-price="800" data-image="honey-250g.jpg">ADD TO CART</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -73,6 +82,25 @@
             <p>Premium Quality</p>
         </div>
     </section>
+
+    <!-- Cart Panel -->
+    <div class="cart-overlay"></div>
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h3>Your Luxury Selection</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items appear here -->
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span class="cart-subtotal">Rs 0</span>
+            </div>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>

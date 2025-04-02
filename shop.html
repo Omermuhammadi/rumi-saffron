@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <!-- Navbar (Same as homepage) -->
+<body class="shop-page">
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">RUMI SAFFRON</div>
         <ul class="nav-links">
@@ -31,39 +31,51 @@
         <div class="product-grid">
             <!-- Saffron - 1 Gram -->
             <div class="product-item">
-                <img src="assets/images/saffron-1g.jpg" alt="Saffron (1 Gram)">
-                <h3>1 Gram</h3>
-                <p class="price">Rs 1300</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/saffron-1g.jpg" alt="Saffron (1 Gram)">
                 </div>
-                <button class="add-to-cart" data-product="Saffron (1g)" data-price="19.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>1 Gram</h3>
+                    <p class="price">Rs 1300</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Saffron (1g)" data-price="1300" data-image="saffron-1g.jpg">ADD TO CART</button>
+                </div>
             </div>
             <!-- Saffron - 2 Grams -->
             <div class="product-item">
-                <img src="assets/images/saffron-2g.jpg" alt="Saffron (2 Grams)">
-                <h3>2 Grams</h3>
-                <p class="price">Rs 2400 <span class="discount">(Save Rs 200)</span></p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/saffron-2g.jpg" alt="Saffron (2 Grams)">
                 </div>
-                <button class="add-to-cart" data-product="Saffron (2g)" data-price="36.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>2 Grams</h3>
+                    <p class="price">Rs 2400 <span class="discount">(Save Rs 200)</span></p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Saffron (2g)" data-price="2400" data-image="saffron-2g.jpg">ADD TO CART</button>
+                </div>
             </div>
             <!-- Saffron - 5 Grams -->
             <div class="product-item">
-                <img src="assets/images/saffron-5g.jpg" alt="Saffron (5 Grams)">
-                <h3>5 Grams</h3>
-                <p class="price">Rs 4000 <span class="discount">(Save Rs 400)</span></p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/saffron-5g.jpg" alt="Saffron (5 Grams)">
                 </div>
-                <button class="add-to-cart" data-product="Saffron (5g)" data-price="89.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>5 Grams</h3>
+                    <p class="price">Rs 4000 <span class="discount">(Save Rs 400)</span></p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Saffron (5g)" data-price="4000" data-image="saffron-5g.jpg">ADD TO CART</button>
+                </div>
             </div>
         </div>
     </section>
@@ -75,99 +87,76 @@
         <div class="product-grid">
             <!-- Honey - 250g -->
             <div class="product-item">
-                <img src="asssets\patrycja-jadach-oGn1B66xOlQ-unsplash.jpg" alt="Honey (250g)">
-                <h3>250g Jar</h3>
-                <p class="price">800</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/honey-250g.jpg" alt="Honey (250g)">
                 </div>
-                <button class="add-to-cart" data-product="Honey (250g)" data-price="14.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>250g Jar</h3>
+                    <p class="price">Rs 800</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Honey (250g)" data-price="800" data-image="honey-250g.jpg">ADD TO CART</button>
+                </div>
             </div>
             <!-- Honey - 500g -->
             <div class="product-item">
-                <img src="asssets\amelia-bartlett-9HajXdvKpIk-unsplash.jpg" alt="Honey (500g)">
-                <h3>500g Jar</h3>
-                <p class="price">1500 <span class="discount">(Save $2)</span></p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/honey-500g.jpg" alt="Honey (500g)">
                 </div>
-                <button class="add-to-cart" data-product="Honey (500g)" data-price="27.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>500g Jar</h3>
+                    <p class="price">Rs 1500 <span class="discount">(Save Rs 200)</span></p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Honey (500g)" data-price="1500" data-image="honey-500g.jpg">ADD TO CART</button>
+                </div>
             </div>
             <!-- Honey - 1kg -->
             <div class="product-item">
-                <img src="asssets\jose-dominguez-g3V5kdcyL9o-unsplash.jpg" alt="Honey (1kg)">
-                <h3>1kg Jar</h3>
-                <p class="price">3000 <span class="discount">(Save $5)</span></p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn minus">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn plus">+</button>
+                <div class="product-image-container">
+                    <img src="asssets/images/honey-1kg.jpg" alt="Honey (1kg)">
                 </div>
-                <button class="add-to-cart" data-product="Honey (1kg)" data-price="49.99">ADD TO CART</button>
+                <div class="product-content">
+                    <h3>1kg Jar</h3>
+                    <p class="price">Rs 3000 <span class="discount">(Save Rs 500)</span></p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="add-to-cart" data-product="Honey (1kg)" data-price="3000" data-image="honey-1kg.jpg">ADD TO CART</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Cart Summary (Sticky Footer) -->
-    <div class="cart-summary">
-        <div class="cart-total">
-            <span>Total: $<span id="cart-total-amount">0.00</span></span>
+    
+
+    <!-- Cart Modal (Will be shown when cart icon clicked) -->
+    <div class="cart-overlay"></div>
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h3>YOUR CART</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Dynamically filled by JavaScript -->
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span class="cart-subtotal">Rs 0</span>
+            </div>
             <button class="checkout-btn">PROCEED TO CHECKOUT</button>
         </div>
     </div>
 
     <script src="js/script.js"></script>
-
-
-    <!-- Cart Modal -->
-<div class="cart-modal-overlay"></div>
-<div class="cart-modal">
-    <div class="cart-modal-header">
-        <h3>YOUR CART</h3>
-        <button class="close-cart">&times;</button>
-    </div>
-    <div class="cart-modal-body">
-        <!-- Cart items injected via JS -->
-    </div>
-    <div class="cart-modal-footer">
-        <p class="cart-total">Total: $<span id="modal-cart-total">0.00</span></p>
-        <button class="checkout-btn">PROCEED TO CHECKOUT</button>
-    </div>
-</div>
-
-<!-- Checkout Modal (Initially Hidden) -->
-<div class="checkout-modal">
-    <div class="checkout-modal-header">
-        <h3>COMPLETE YOUR ORDER</h3>
-        <button class="close-checkout">&times;</button>
-    </div>
-    <form class="checkout-form">
-        <div class="form-group">
-            <label>Full Name*</label>
-            <input type="text" required>
-        </div>
-        <div class="form-group">
-            <label>Email*</label>
-            <input type="email" required>
-        </div>
-        <div class="form-group">
-            <label>Phone Number*</label>
-            <input type="tel" required>
-        </div>
-        <div class="form-group">
-            <label>Shipping Address*</label>
-            <textarea rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label>Special Notes</label>
-            <textarea rows="2" placeholder="Gift message, delivery instructions..."></textarea>
-        </div>
-        <button type="submit" class="submit-order">PLACE ORDER ($<span id="final-total">0.00</span>)</button>
-    </form>
-</div>
 </body>
 </html>
