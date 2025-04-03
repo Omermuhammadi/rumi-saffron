@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuIcon && navLinks) {
+        menuIcon.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        });
+    }
+
+
+
+
     // Cart System
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
   
@@ -193,3 +206,38 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 3000);
     }
 });
+
+const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuIcon && navLinks) {
+        menuIcon.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        });
+    }
+
+
+
+/*************************************************************************** */
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuIcon && navLinks) {
+        menuIcon.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        });
+    } else {
+        console.error("Menu icon or navigation links not found in the DOM.");
+    }
+});
+
+
+
+
+
