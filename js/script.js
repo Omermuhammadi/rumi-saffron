@@ -241,3 +241,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+// CHAT IMPLEMENTATION
+document.addEventListener('DOMContentLoaded', function() {
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotWindow = document.getElementById('chatbot');
+  const chatSend = document.getElementById('chat-send');
+  const chatInput = document.getElementById('chat-input');
+  const chatMessages = document.getElementById('chat-messages');
+
+  // Make sure all elements exist before proceeding
+  if (!chatbotToggle || !chatbotWindow || !chatSend || !chatInput || !chatMessages) {
+    console.error('Chat elements not found');
+    return;
+  }
+
+  // Initialize with first message
+  if (chatMessages.innerHTML === '') {
+    chatMessages.innerHTML = "<p><strong>Rumi:</strong> Greetings! I'm Rumi, your expert assistant. How can I help you with our premium saffron and honey products?</p>";
+  }
+
+  chatbotToggle.addEventListener('click', function() {
+    chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+  });
+
+  async function sendMessage() {
+    try {
+      const userMessage = chatInput.value.trim();
+      if (!userMessage) return;
+
+      // Add user message
+      chatMessages.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+      
+      // Create loading indicator
+      const loadingElem = document.createElement('p');
+      loadingElem.className = 'loading';
+      loadingElem.textContent = 'Loading...';
+      chatMessages.appendChild(loadingElem);
+      
+      // Clear input and scroll to bottom
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Check if window.getChatbotResponse exists
+      if (typeof window.getChatbotResponse === 'function') {
+        const botResponse = await window.getChatbotResponse(userMessage);
+        loadingElem.remove();
+        chatMessages.innerHTML += `<p><strong>Rumi:</strong> ${botResponse}</p>`;
+      } else {
+        loadingElem.remove();
+        chatMessages.innerHTML += `<p><strong>Rumi:</strong> Sorry, the chatbot service is not available right now.</p>`;
+        console.error('getChatbotResponse function not found');
+      }
+    } catch (error) {
+      console.error('Error in sendMessage:', error);
+      const loadingElem = document.querySelector('.loading');
+      if (loadingElem) loadingElem.remove();
+      chatMessages.innerHTML += `<p><strong>Rumi:</strong> Sorry, something went wrong with my response.</p>`;
+    } finally {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  }
+
+  chatSend.addEventListener('click', sendMessage);
+  
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+});

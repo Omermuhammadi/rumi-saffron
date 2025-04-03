@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RUMI SAFFRON | Luxury Organic Honey & Saffron</title>
+  <title>RUMI SAFFRON | Premium Saffron & Honey - Luxury Organic Products</title>
+<meta name="description" content="Shop luxury organic saffron and honey at RUMI SAFFRON. Premium quality, handpicked products. Fast delivery.">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -169,6 +169,27 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+
+<!-- Round "Ask Rumi" Button -->
+<button id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: #FFD700; color: black; border: none; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;">Ask Rumi</button>
+
+<!-- Chat Window (Hidden by Default) -->
+<div id="chatbot" style="display: none; position: fixed; bottom: 100px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  <div id="chat-messages" style="height: 200px; overflow-y: auto; margin-bottom: 10px;"></div>
+  <input type="text" id="chat-input" placeholder="Type your message..." style="width: 100%; padding: 5px; margin-bottom: 5px;">
+  <button id="chat-send" style="width: 100%; padding: 5px; background: #FFD700; color: black; border: none; border-radius: 5px; cursor: pointer;">Send</button>
+</div>
+
+
+
+
+<!-- Load Google AI SDK first -->
+<script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@latest/dist/index.umd.js"></script>
+<!-- Load Chatbot Logic (this needs to run before script.js) -->
+<script src="js/chatbot.js"></script>
+<!-- Load Main Script (which depends on chatbot.js) -->
+<script src="js/script.js"></script>
+<!-- Link Chatbot CSS -->
+<link rel="stylesheet" href="css/chatbot.css">
 </body>
 </html>
