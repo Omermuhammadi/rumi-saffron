@@ -1,4 +1,6 @@
-/* ===== BASE STYLES ===== */
+
+  
+  /* ===== BASE STYLES ===== */
 :root {
     --gold: #D4AF37;
     --red: #8B0000;
@@ -41,7 +43,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: center;  /* Center desktop nav */
+    justify-content: center;
     position: relative;
   }
   
@@ -55,7 +57,6 @@
     left: 20px;
   }
   
-  /* Desktop Navigation Links */
   .desktop-nav {
     display: flex;
     list-style: none;
@@ -77,8 +78,82 @@
   .desktop-nav a:hover {
     color: var(--gold);
   }
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(135deg, #d1ad38, #0e0404);
+    color: white;
+    padding-top: 50px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1100;
+    display: flex; /* Add flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Push content to top and bottom */
+  }
   
-  /* Cart Icon (desktop) */
+  .mobile-nav.active {
+    left: 0;
+  }
+  
+  .mobile-nav ul {
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .mobile-nav li {
+    padding: 10px 0;
+  }
+  
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.2rem;
+  }
+  
+  .mobile-nav .social-icons {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .social-icons a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: var(--gold);
+  font-size: 1.2rem;
+}
+  
+  .menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .close-mobile-nav {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+  
   .cart-icon {
     position: absolute;
     right: 20px;
@@ -183,7 +258,7 @@
   }
   
   .product-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-15px);
   }
   
   .product-image-container {
@@ -362,7 +437,6 @@
     font-size: 12px;
   }
   
-  /* Cart Summary */
   .cart-summary {
     padding: 20px;
     border-top: 1px solid #eee;
@@ -421,101 +495,6 @@
     font-weight: 300;
   }
   
-  /* ===== FOOTER ===== */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: var(--black);
-    color: var(--white);
-  }
-  
-  /* ===== MOBILE RESPONSIVE FIXES ===== */
-  @media screen and (max-width: 768px) {
-
-    .logo {
-        position: static;  /* Remove absolute positioning */
-        margin: 0 auto;
-        text-align: center;
-        width: 100%;
-      }
-
-    /* Show hamburger icon on mobile */
-    .menu-icon {
-      display: block;
-      cursor: pointer;
-      font-size: 19px;
-      position: absolute;
-      left: 5px;
-      z-index: 1101;
-      top: 7px;
-    }
-    
-    /* Hide desktop nav links on mobile */
-    .desktop-nav {
-      display: none;
-    }
-    
-    /* Mobile Navigation Sidebar (slides from left) */
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: -70%;
-      width: 70%;
-      height: 100%;
-      background: white;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-      transition: left 0.3s ease-in-out;
-      z-index: 1100;
-    }
-    
-    .mobile-nav.active {
-      left: 0;
-    }
-
-    .mobile-nav-header {
-        padding: 10px 20px;
-        text-align: right;
-      }
-      
-      .close-mobile-nav {
-        font-size: 24px;
-        cursor: pointer;
-      }
-    
-    .mobile-nav .nav-links {
-      list-style: none;
-      padding: 60px 20px;
-      margin: 0;
-    }
-    
-    .mobile-nav .nav-links li {
-      margin: 15px 0;
-    }
-    
-    .mobile-nav .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      font-size: 1.2rem;
-    }
-    
-    /* Adjust hero section on mobile */
-    .hero {
-      height: 60vh;
-    }
-    
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-    
-    .cta-button {
-      font-size: 1rem;
-      padding: 10px 20px;
-      margin-top: 15px;
-      position: relative;
-      top: -10px;
-    }
-  }
-  
   /* ===== CHECKOUT MODAL ===== */
   .checkout-modal {
     position: fixed;
@@ -541,42 +520,7 @@
     width: 90%;
     max-width: 500px;
     position: relative;
-  }
-  
-  .checkout-form-container h2 {
-    margin-top: 0;
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .checkout-form-container form input,
-  .checkout-form-container form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .checkout-form-container form .payment-method label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-  }
-  
-  .checkout-form-container form button {
-    width: 100%;
-    padding: 12px;
-    background: var(--gold);
-    border: none;
-    color: var(--black);
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .checkout-form-container form button:hover {
-    background: var(--black);
-    color: var(--gold);
+    box-sizing: border-box;
   }
   
   .close-checkout {
@@ -587,102 +531,197 @@
     cursor: pointer;
   }
   
-  /* ===== ABOUT SECTION ===== */
-  .about {
-    padding: 80px 5%;
-    background: var(--cream-bg);
-  }
-  
-  .about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .about-hero {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
-    background: #000;
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center bottom;
-    transform: translate(-50%, -50%);
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  
-  .about-hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  
-  .about-hero-content h1 {
+  .checkout-form h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   
-  .about-hero-content p {
-    font-size: 1.2rem;
-  }
-  
-  .about-content {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  }
-  
-  .about-content h2 {
+  .form-label {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--black);
-  }
-  
-  .about-content p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    line-height: 1.8;
-    color: var(--black);
-  }
-  
-  .about-content a {
     color: var(--gold);
-    text-decoration: underline;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  
+  .submit-btn {
+    background-color: var(--gold);
+    color: var(--black);
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: var(--black);
+    color: var(--gold);
+  }
+  
+  .radio-option {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-option input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .radio-option input[type="radio"]:checked::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .radio-option label {
+    font-size: 16px;
+    color: var(--black);
+  }
+  
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--black);
+    color: var(--white);
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .social-icons a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 24px;
     transition: color 0.3s;
   }
   
-  .about-content a:hover {
-    color: var(--red);
+  .social-icons a:hover {
+    color: var(--gold);
   }
   
-  @media (max-width: 768px) {
-    .about-hero {
-      height: 250px;
+  /* ===== MOBILE RESPONSIVE FIXES ===== */
+  @media screen and (max-width: 768px) {
+    .menu-icon {
+      display: block;
     }
-  
-    .about-hero-content h1 {
+    .desktop-nav {
+      display: none;
+    }
+    .logo {
+      position: static;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+    }
+    .hero {
+      height: 60vh;
+    }
+    .hero-content h1 {
       font-size: 2.5rem;
     }
+    .cta-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin-top: 15px;
+    }
+    .checkout-form-container {
+      width: 95%;
+      padding:
+       20px;
+    }
+    .checkout-form-container {
+      width: 80%;
+      padding: 20px;
+    }
+    .form-label {
+      font-size: 16px;
+    }
+    .form-input {
+      padding: 10px;
+      font-size: 14px;
+    }
+    .submit-btn {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .checkout-form h3 {
+      font-size: 1.3rem;
+    }
+    .radio-option label {
+      font-size: 14px;
+    }
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+    }
+    .radio-option input[type="radio"]:checked::after {
+      width: 10px;
+      height: 10px;
+    }
+  }
   }
   
+  @media screen and (max-width: 480px) {
+    .checkout-form-container {
+      width: 100%;
+      padding: 15px;
+      margin: 10px;
+    }
+    .form-label {
+      font-size: 14px;
+    }
+    .form-input {
+      padding: 8px;
+      font-size: 12px;
+    }
+    .submit-btn {
+      font-size: 14px;
+      padding: 8px;
+    }
+    .checkout-form h3 {
+      font-size: 1.2rem;
+    }
+    .radio-option label {
+      font-size: 12px;
+    }
+    .radio-option input[type="radio"] {
+      width: 16px;
+      height: 16px;
+    }
+    .radio-option input[type="radio"]:checked::after {
+      width: 8px;
+      height: 8px;
+    }
+  }

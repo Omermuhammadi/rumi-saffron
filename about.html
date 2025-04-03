@@ -9,20 +9,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Navbar -->
+
+
+
   <nav class="navbar">
-    <div class="logo">RUMI SAFFRON</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="cart-icon">
-      <i class="fas fa-shopping-bag"></i>
-      <span class="cart-count">0</span>
+    <div class="nav-container">
+        <!-- Mobile Hamburger Icon -->
+        <div class="menu-icon" onclick="toggleMobileNav()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!-- Logo always visible -->
+        <a href="index.html" class="logo">RUMI SAFFRON</a>
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links desktop-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- Cart Icon on Desktop -->
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+        </div>
     </div>
-  </nav>
+</nav>
+
+<!-- Mobile Navigation Sidebar -->
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+        <span class="close-mobile-nav" onclick="closeMobileNav()">&times;</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
+
 
   <!-- About Section -->
   <section class="about">

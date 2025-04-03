@@ -1,16 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // MOBILE MENU TOGGLE
+  // Mobile Menu Toggle
   const menuIcon = document.querySelector('.menu-icon');
   const mobileNav = document.querySelector('.mobile-nav');
   const closeMobileNav = document.querySelector('.close-mobile-nav');
 
   if (menuIcon && mobileNav) {
     menuIcon.addEventListener('click', function(e) {
-      e.stopPropagation(); // Prevent event bubbling
+      e.stopPropagation();
       mobileNav.classList.add('active');
     });
-  } else {
-    console.error("Menu icon or mobile nav not found.");
   }
 
   if (closeMobileNav && mobileNav) {
@@ -19,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Close mobile nav when clicking outside
   document.addEventListener('click', function(e) {
     if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !menuIcon.contains(e.target)) {
       mobileNav.classList.remove('active');
     }
   });
-  // CART SYSTEM
+
+  // Cart System
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartIcon = document.querySelector('.cart-icon');
   const cartPanel = document.querySelector('.cart-panel');
@@ -44,20 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-      let quantityValue = 1;
-      const quantitySpan = this.previousElementSibling && this.previousElementSibling.querySelector('.quantity');
-      if (quantitySpan) {
-        quantityValue = parseInt(quantitySpan.textContent) || 1;
-      }
       const product = {
         name: this.dataset.product,
         price: parseFloat(this.dataset.price),
         image: this.dataset.image,
-        quantity: quantityValue
+        quantity: 1
       };
       const existingItem = cart.find(item => item.name === product.name);
       if (existingItem) {
-        existingItem.quantity += product.quantity;
+        existingItem.quantity += 1;
       } else {
         cart.push(product);
       }
@@ -87,10 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const cartItemEl = document.createElement('div');
       cartItemEl.className = 'cart-item';
       cartItemEl.innerHTML = `
-        <img src="assets/images/${item.image}" alt="${item.name}" class="cart-item-img">
+        <img src="asssets/images/${item.image}" alt="${item.name}" class="cart-item-img">
         <div class="cart-item-details">
           <h4 class="cart-item-title">${item.name}</h4>
-          <p class="cart-item-price">Rs ${item.price.toLocaleString()}</p>
+          <p class="cart-item-price">Rs ${(item.price * item.quantity).toLocaleString()}</p>
           <div class="cart-item-actions">
             <div class="quantity-adjuster">
               <button class="quantity-btn minus" data-index="${index}">-</button>
@@ -149,34 +142,43 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
+  // Checkout Modal
   checkoutBtn.addEventListener('click', function() {
     if (cart.length === 0) {
       showNotification('Your cart is empty!', 'error');
       return;
     }
-    document.getElementById('checkout-modal').classList.add('active');
+    document.getElementById('checkoutModal').classList.add('active');
   });
 
-  // Checkout Modal close
   const closeCheckout = document.querySelector('.close-checkout');
   if (closeCheckout) {
     closeCheckout.addEventListener('click', function() {
-      document.getElementById('checkout-modal').classList.remove('active');
+      document.getElementById('checkoutModal').classList.remove('active');
     });
   }
 
-  // Handle Checkout Form submission
+  // Form Submission
   const checkoutForm = document.getElementById('checkout-form');
   if (checkoutForm) {
     checkoutForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Clear the cart and notify the user
-      cart = [];
-      updateCart();
-      renderCartItems();
-      document.getElementById('checkout-modal').classList.remove('active');
-      showNotification('Order submitted successfully!');
+      const cartDataInput = document.getElementById('cart-data');
+      cartDataInput.value = formatCartForEmail(cart);
+      // Form submits naturally to Formspree
+      setTimeout(() => {
+        cart = [];
+        updateCart();
+        renderCartItems();
+        document.getElementById('checkoutModal').classList.remove('active');
+        showNotification('Order submitted successfully!');
+      }, 500); // Delay to allow submission
     });
+  }
+
+  function formatCartForEmail(cart) {
+    let items = cart.map(item => `${item.name} x ${item.quantity} - Rs ${item.price * item.quantity}`);
+    let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    return `Items:\n${items.join('\n')}\nTotal: Rs ${total}`;
   }
 
   function showNotification(message, type = 'success') {
@@ -201,6 +203,41 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
       notification.classList.remove('show');
       setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    }, 1000);
   }
 });
+
+// Toggle Payment Options
+function togglePaymentOptions() {
+  const onlineOptions = document.getElementById('online-payment-options');
+  const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
+  onlineOptions.style.display = selectedMethod === 'online' ? 'block' : 'none';
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".product-item").forEach((item) => {
+    const minusBtn = item.querySelector(".quantity-btn.minus");
+    const plusBtn = item.querySelector(".quantity-btn.plus");
+    const quantitySpan = item.querySelector(".quantity");
+
+    minusBtn.addEventListener("click", function () {
+      let quantity = parseInt(quantitySpan.textContent);
+      if (quantity > 1) {
+        quantity--;
+        quantitySpan.textContent = quantity;
+      }
+    });
+
+    plusBtn.addEventListener("click", function () {
+      let quantity = parseInt(quantitySpan.textContent);
+      quantity++;
+      quantitySpan.textContent = quantity;
+    });
+  });
+});
+
+
+
+
+
