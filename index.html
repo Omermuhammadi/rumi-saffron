@@ -1,112 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUMI SAFFRON | Luxury Organic Honey & Saffron</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMI SAFFRON | Luxury Organic Honey & Saffron</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">RUMI SAFFRON</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="cart-icon">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">0</span>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="asssets/videos/hero.mp4" type="video/mp4">
-            <img src="asssets/images/hero-fallback.jpg" alt="Luxury Saffron & Honey">
-        </video>
-        <div class="hero-content">
-            <h1>LUXURY IN EVERY STRAND</h1>
-            <p>Handpicked Iranian Saffron & Himalayan Wildflower Honey</p>
-            <a href="shop.html" class="cta-button">SHOP NOW</a>
-        </div>
-    </section>
-
-    <!-- Product Teasers -->
-    <section class="products">
-        <div class="product-grid">
-            <!-- Saffron -->
-            <div class="product-item">
-                <div class="product-image-container">
-                    <img src="asssets/images/saffron-1g.jpg" alt="Premium Saffron (1 Gram)">
-                </div>
-                <div class="product-content">
-                    <h3>1 Gram Saffron</h3>
-                    <p class="price">Rs 1300</p>
-                    <button class="add-to-cart" data-product="Saffron (1g)" data-price="1300" data-image="saffron-1g.jpg">ADD TO CART</button>
-                </div>
-            </div>
-            
-            <!-- Honey -->
-            <div class="product-item">
-                <div class="product-image-container">
-                    <img src="asssets\images\honey-250g.jpg" alt="Wildflower Honey (250g)">
-                </div>
-                <div class="product-content">
-                    <h3>250g Honey</h3>
-                    <p class="price">Rs 800</p>
-                    <button class="add-to-cart" data-product="Honey (250g)" data-price="800" data-image="honey-250g.jpg">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="badge">
-            <i class="fas fa-certificate"></i>
-            <p>100% Organic</p>
-        </div>
-        <div class="badge">
-            <i class="fas fa-globe"></i>
-            <p>Direct from Iran</p>
-        </div>
-        <div class="badge">
-            <i class="fas fa-award"></i>
-            <p>Premium Quality</p>
-        </div>
-    </section>
-
-    <!-- Cart Panel -->
-    <div class="cart-overlay"></div>
-    <div class="cart-panel">
-        <div class="cart-header">
-            <h3>Your Luxury Selection</h3>
-            <button class="close-cart">&times;</button>
-        </div>
-        <div class="cart-items">
-            <!-- Cart items appear here -->
-        </div>
-        <div class="cart-summary">
-            <div class="summary-row">
-                <span>Subtotal</span>
-                <span class="cart-subtotal">Rs 0</span>
-            </div>
-            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Mobile Hamburger Icon -->
+      <div class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+      <!-- Logo always visible -->
+      <a href="index.html" class="logo">RUMI SAFFRON</a>
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links desktop-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Cart Icon on Desktop -->
+      <div class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count">0</span>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 RUMI SAFFRON. Crafted with passion.</p>
-    </footer>
+  <!-- Mobile Navigation Sidebar -->
+<div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="close-mobile-nav">&times;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  
 
-    <script src="js/script.js"></script>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/videos/hero.mp4" type="video/mp4">
+      <img src="assets/images/hero-fallback.jpg" alt="Luxury Saffron & Honey">
+    </video>
+    <div class="hero-content">
+      <h1>LUXURY IN EVERY STRAND</h1>
+      <p>Handpicked Iranian Saffron & Himalayan Wildflower Honey</p>
+      <a href="shop.html" class="cta-button">SHOP NOW</a>
+    </div>
+  </section>
+
+  <!-- Product Teasers -->
+  <section class="products">
+    <div class="product-grid">
+      <!-- Example: Saffron -->
+      <div class="product-item">
+        <div class="product-image-container">
+          <img src="assets/images/saffron-1g.jpg" alt="Premium Saffron (1 Gram)">
+        </div>
+        <div class="product-content">
+          <h3>1 Gram Saffron</h3>
+          <p class="price">Rs 1300</p>
+          <button class="add-to-cart" data-product="Saffron (1g)" data-price="1300" data-image="saffron-1g.jpg">ADD TO CART</button>
+        </div>
+      </div>
+      <!-- Example: Honey -->
+      <div class="product-item">
+        <div class="product-image-container">
+          <img src="assets/images/honey-250g.jpg" alt="Wildflower Honey (250g)">
+        </div>
+        <div class="product-content">
+          <h3>250g Honey</h3>
+          <p class="price">Rs 800</p>
+          <button class="add-to-cart" data-product="Honey (250g)" data-price="800" data-image="honey-250g.jpg">ADD TO CART</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="trust-badges">
+    <div class="badge">
+      <i class="fas fa-certificate"></i>
+      <p>100% Organic</p>
+    </div>
+    <div class="badge">
+      <i class="fas fa-globe"></i>
+      <p>Direct from Iran</p>
+    </div>
+    <div class="badge">
+      <i class="fas fa-award"></i>
+      <p>Premium Quality</p>
+    </div>
+  </section>
+
+  <!-- Cart Panel -->
+  <div class="cart-overlay"></div>
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h3>Your Luxury Selection</h3>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items">
+      <!-- Cart items will appear here -->
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span class="cart-subtotal">Rs 0</span>
+      </div>
+      <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-form-container">
+      <span class="close-checkout">&times;</span>
+      <h2>Checkout</h2>
+      <form id="checkout-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Contact Number" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="address" placeholder="Delivery Address" required></textarea>
+        <div class="payment-method">
+          <label><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+          <label><input type="radio" name="payment" value="Easypaisa"> Easypaisa</label>
+        </div>
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 RUMI SAFFRON. Crafted with passion.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
