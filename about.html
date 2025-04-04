@@ -15,9 +15,9 @@
   <nav class="navbar">
     <div class="nav-container">
         <!-- Mobile Hamburger Icon -->
-        <div class="menu-icon" onclick="toggleMobileNav()">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="menu-icon">
+          <i class="fas fa-bars"></i>
+      </div>
         <!-- Logo always visible -->
         <a href="index.html" class="logo">RUMI SAFFRON</a>
         <!-- Desktop Navigation Links -->
@@ -36,18 +36,22 @@
 </nav>
 
 <!-- Mobile Navigation Sidebar -->
+<!-- Mobile Navigation Sidebar -->
 <div class="mobile-nav" id="mobileNav">
-    <div class="mobile-nav-header">
-        <span class="close-mobile-nav" onclick="closeMobileNav()">&times;</span>
-    </div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <div class="mobile-nav-header">
+      <span class="close-mobile-nav"></span>
+  </div>
+  <ul class="nav-links">
+      <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
+      <li><a href="shop.html" onclick="closeMobileNav()">Shop</a></li>
+      <li><a href="about.html" onclick="closeMobileNav()">About</a></li>
+      <li><a href="contact.html" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div class="social-icons">
+      <a href="https://instagram.com/yourhandle" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/yourhandle" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
 </div>
-
 
 
   <!-- About Section -->
@@ -86,11 +90,18 @@
   
 
   <!-- Footer -->
-  <footer>
-    <p>© 2024 RUMI SAFFRON. Crafted with passion.</p>
-  </footer>
+  <footer class="footer">
+    <div class="footer-container">
+        <p>© 2025 RUMI SAFFRON. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://instagram.com/yourhandle" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/yourhandle" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
-</html>
 
 
 <!-- Add this to your about.html -->
@@ -125,7 +136,7 @@
     z-index: 2;
     text-align: center;
     color: white;
-    padding-top: 120px;
+    padding-top: 30px;
   }
   
   .about-hero-content h1 {
@@ -158,7 +169,7 @@
     }
     
     .about-hero-content h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
     
     .about-content {

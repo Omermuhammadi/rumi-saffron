@@ -1,4 +1,4 @@
-@import 'components/chatbot.css';
+@import 'chatbot.css';
   
 /* ===== BASE STYLES ===== */
 :root {
@@ -30,39 +30,48 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px; /* Maintains thickness */
-    background: var(--dark-bg); /* Darker background */
+    padding: 0 20px;
+    background: var(--dark-bg);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    height: 70px;
 }
-  
 .nav-container {
     display: flex;
     align-items: center;
+    height: 100%;
     width: 100%;
-    max-width: 1200px; /* Limits width for better control */
-    justify-content: space-between; /* Space between logo, nav, and cart */
-    position: relative;
+    max-width: 1200px;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: absolute;
+    
 }
   
 .logo {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.8rem;
-    color: var(--white); /* Changed to white for contrast on dark bg */
+    font-size: 1.6rem;
+    color: var(--white);
     text-decoration: none;
-    margin-right: 20px; /* Space between logo and nav */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevent logo text wrapping */
+    line-height: 70px; /* Vertically center */
+    margin-right: 20px;
 }
   
 .desktop-nav {
     display: flex; /* Visible by default on desktop */
     list-style: none;
-    margin: 0 auto; /* Centers the nav horizontally */
+    margin: 0; /* Centers the nav horizontally */
     padding: 0;
+    flex: 1; /* Allow nav-links to expand and center themselves */
+  justify-content: center;
 }
   
 .desktop-nav li {
@@ -139,14 +148,15 @@ body {
 }
   
 .menu-icon {
-    display: none; /* Hidden by default on desktop */
-    font-size: 24px;
+    display: none;
+    font-size: 25px;
     cursor: pointer;
     position: absolute;
-    left: 5px;
+    left: 4%;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--white); /* Contrast on dark bg */
+    color: var(--gold);
+    z-index: 1001;
 }
   
 .close-mobile-nav {
@@ -157,11 +167,18 @@ body {
     top: 10px;
     color: var(--white);
 }
+
   
 .cart-icon {
-    position: relative; /* Changed from absolute to relative for better control */
-    cursor: pointer;
-    margin-left: 20px; /* Space from nav */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--gold);
+}
+.cart-icon .fa-shopping-bag {
+    font-size: 1.4rem;
 }
   
 .cart-count {
@@ -182,7 +199,7 @@ body {
 /* ===== HERO SECTION ===== */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 60vh;
     overflow: hidden;
 }
   
@@ -210,18 +227,19 @@ body {
     color: white;
     z-index: 10;
     width: 90%;
+    padding: 0 15px;
 }
   
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
   
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin-bottom: 25px;
 }
   
 .cta-button {
@@ -245,20 +263,18 @@ body {
     padding: 80px 5%;
 }
 
-/* Center all content within product sections */
 .product-section {
     text-align: center;
-    padding: 50px 0; /* Adds spacing above and below each section */
+    padding: 50px 0; 
 }
 
-/* Style and center the section subtitle */
 .section-subtitle {
     font-style: italic;
-    color: #d1ad38; /* Assuming --gold is a gold color like #d1ad38 */
-    margin-bottom: 30px; /* Space between subtitle and product grid */
+    color: #d1ad38; 
+    margin-bottom: 30px;
 }
 
-/* Ensure product content (title, price, etc.) is centered */
+
 .product-content {
     padding: 20px;
     text-align: center;
@@ -363,7 +379,7 @@ body {
     top: 0;
     right: -100%;
     width: 100%;
-    max-width: 400px;
+    max-width: 80%;
     height: 100%;
     background: var(--white);
     z-index: 1000;
@@ -470,6 +486,7 @@ body {
     flex-direction: column;
     gap: 15px;
 }
+
   
 .summary-row {
     display: flex;
@@ -634,11 +651,19 @@ body {
 }
   
 /* ===== FOOTER ===== */
-footer {
+.footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
     background: var(--black);
     color: var(--white);
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer p {
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
   
 .social-icons {
@@ -649,7 +674,7 @@ footer {
 .social-icons a {
     color: var(--white);
     margin: 0 10px;
-    font-size: 24px;
+    font-size: 28px;
     transition: color 0.3s;
 }
   
@@ -660,24 +685,34 @@ footer {
 /* ===== MOBILE RESPONSIVE FIXES ===== */
 @media screen and (max-width: 768px) {
     .menu-icon {
-        display: block !important;
-        z-index: 1001; /* Ensure it stays on top */
+        display: block ;
+        z-index: 1001; 
     }
+    .navbar {
+        padding: 12px 15px;
+        height: 60px;
+    }
+
     .desktop-nav {
         display: none;
     }
     .logo {
-        position: absolute !important; /* Force absolute positioning */
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: auto !important; /* Remove full width */
-        margin: 0 !important;
+        position: absolute; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto ; 
+        margin: 0 ;
+        font-size: 1.4rem;
+        
     }
     .hero {
-        height: 60vh;
+        height: 50vh;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
     }
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
     .cta-button {
         font-size: 1rem;
@@ -714,15 +749,38 @@ footer {
         height: 10px;
     }
     .cart-icon {
-        position: absolute !important; /* Force absolute positioning */
-        right: 20px !important; /* Move to the right side */
+        position: absolute !important; 
+        right: 20px !important; 
         top: 50% !important;
         transform: translateY(-50%) !important;
-        margin-left: 0; /* Remove margin to avoid left shift */
+        margin-left: 0; 
+    }
+    
+    .footer {
+        padding: 25px 15px;
+    }
+    .social-icons a {
+        font-size: 24px;
+        margin: 0 10px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    
+    .logo {
+        font-size: 1.5rem;
+        left: calc(50% + 15px);
+    }
+    .cart-icon {
+        font-size: 20px;
+    }
+    .hero {
+        height: 45vh;
+    }
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
     .checkout-form-container {
         width: 100%;
         padding: 15px;
@@ -753,4 +811,23 @@ footer {
         width: 8px;
         height: 8px;
     }
+    #contact-form h2 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+
+      
 }
+
+
+
+
+/***************************************************************
+****************************************************************
+****************************************************************/
+
+
+
+
+
+

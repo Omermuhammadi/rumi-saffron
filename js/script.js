@@ -1,27 +1,35 @@
+// Define the mobile nav functions at the top level
+function toggleMobileNav() {
+  const mobileNav = document.getElementById('mobileNav');
+  mobileNav.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
+}
+
+function closeMobileNav() {
+  const mobileNav = document.getElementById('mobileNav');
+  mobileNav.classList.remove('active');
+  document.body.classList.remove('no-scroll');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Menu Toggle
-  const menuIcon = document.querySelector('.menu-icon');
-  const mobileNav = document.querySelector('.mobile-nav');
-  const closeMobileNav = document.querySelector('.close-mobile-nav');
+  // Mobile Menu Toggle using event listeners
+  document.querySelector('.menu-icon')?.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMobileNav();
+  });
 
-  if (menuIcon && mobileNav) {
-    menuIcon.addEventListener('click', function(e) {
-      e.stopPropagation();
-      mobileNav.classList.add('active');
-    });
-  }
+  document.querySelector('.close-mobile-nav')?.addEventListener('click', closeMobileNav);
 
-  if (closeMobileNav && mobileNav) {
-    closeMobileNav.addEventListener('click', function() {
-      mobileNav.classList.remove('active');
-    });
-  }
-
+  // Close when clicking outside the mobile nav
   document.addEventListener('click', function(e) {
-    if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !menuIcon.contains(e.target)) {
-      mobileNav.classList.remove('active');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav?.classList.contains('active') &&
+        !mobileNav.contains(e.target) &&
+        !document.querySelector('.menu-icon').contains(e.target)) {
+      closeMobileNav();
     }
   });
+
 
   // Cart System
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -243,7 +251,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// CHAT IMPLEMENTATION
+
+
+/* CHAT IMPLEMENTATION*/
 document.addEventListener('DOMContentLoaded', function() {
   const chatbotToggle = document.getElementById('chatbot-toggle');
   const chatbotWindow = document.getElementById('chatbot');
